@@ -6,8 +6,21 @@
 </template>
 
 <script>
+import {banner} from '@/api/home'
 export default {
-  name: "Home"
+  name: "Home",
+  data(){
+    return{}
+  },
+  created() {
+    this.onBanner()
+  },
+  methods: {
+    async onBanner() {
+      const {data} = await banner({language: 1, platform: 'pc'})
+      console.log('code', data)
+    }
+  }
 }
 </script>
 
